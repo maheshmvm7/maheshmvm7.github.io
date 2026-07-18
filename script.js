@@ -20,3 +20,33 @@ window.addEventListener("DOMContentLoaded", () => {
     type();
 
 });
+
+
+const toggle = document.getElementById("theme-toggle");
+
+function setTheme(theme){
+
+    document.body.classList.toggle("light", theme === "light");
+
+    if(theme === "light"){
+        toggle.innerHTML = '<span>dark</span>/light';
+    }else{
+        toggle.innerHTML = 'dark/<span>light</span>';
+    }
+
+    localStorage.setItem("theme", theme);
+}
+
+const savedTheme = localStorage.getItem("theme") || "dark";
+setTheme(savedTheme);
+
+toggle.addEventListener("click", () => {
+
+    const nextTheme =
+        document.body.classList.contains("light")
+            ? "dark"
+            : "light";
+
+    setTheme(nextTheme);
+
+});
