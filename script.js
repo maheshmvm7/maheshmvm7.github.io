@@ -1,26 +1,25 @@
-window.addEventListener("DOMContentLoaded", () => {
+// window.addEventListener("DOMContentLoaded", () => {
 
-    const text = "about";
-    const typing = document.getElementById("typing");
-    const cursor = document.getElementById("cursor");
+//     const text = "about";
+//     const typing = document.getElementById("typing");
+//     const cursor = document.getElementById("cursor");
 
-    let i = 0;
+//     let i = 0;
 
-    function type() {
-        if (i < text.length) {
-            typing.textContent += text[i];
-            i++;
-            setTimeout(type, 700);
-        } else {
-            // Change cursor to !
-            cursor.textContent = "_";
-        }
-    }
+//     function type() {
+//         if (i < text.length) {
+//             typing.textContent += text[i];
+//             i++;
+//             setTimeout(type, 700);
+//         } else {
+//             // Change cursor to !
+//             cursor.textContent = "_";
+//         }
+//     }
 
-    type();
+//     type();
 
-});
-
+// });
 
 const toggle = document.getElementById("theme-toggle");
 
@@ -48,5 +47,29 @@ toggle.addEventListener("click", () => {
             : "light";
 
     setTheme(nextTheme);
+
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+
+    const title = document.querySelector(".terminal-title");
+    const text = title.dataset.title;
+
+    const typing = document.getElementById("typing");
+    const cursor = document.getElementById("cursor");
+
+    let i = 0;
+
+    function type() {
+        if (i < text.length) {
+            typing.textContent += text.charAt(i);
+            i++;
+            setTimeout(type, 150);
+        } else {
+            cursor.textContent = "_";
+        }
+    }
+
+    type();
 
 });
