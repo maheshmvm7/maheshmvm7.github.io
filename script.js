@@ -1,26 +1,3 @@
-// window.addEventListener("DOMContentLoaded", () => {
-
-//     const text = "about";
-//     const typing = document.getElementById("typing");
-//     const cursor = document.getElementById("cursor");
-
-//     let i = 0;
-
-//     function type() {
-//         if (i < text.length) {
-//             typing.textContent += text[i];
-//             i++;
-//             setTimeout(type, 700);
-//         } else {
-//             // Change cursor to !
-//             cursor.textContent = "_";
-//         }
-//     }
-
-//     type();
-
-// });
-
 const toggle = document.getElementById("theme-toggle");
 
 function setTheme(theme){
@@ -72,4 +49,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
     type();
 
+});
+
+document.querySelectorAll("nav a").forEach(link => {
+    link.addEventListener("click", function (e) {
+        if (this.pathname === window.location.pathname) {
+            e.preventDefault();
+        }
+    });
 });
