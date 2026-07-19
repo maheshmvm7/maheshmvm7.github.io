@@ -1,32 +1,29 @@
+// theme switcher
 const toggle = document.getElementById("theme-toggle");
 
-function setTheme(theme){
-
+function setTheme(theme) {
     document.body.classList.toggle("light", theme === "light");
 
-    if(theme === "light"){
-        toggle.innerHTML = '<span>dark</span>/light';
-    }else{
-        toggle.innerHTML = 'dark/<span>light</span>';
-    }
+    toggle.innerHTML =
+        theme === "light"
+            ? "<span>dark</span>/light"
+            : "dark/<span>light</span>";
 
     localStorage.setItem("theme", theme);
 }
 
-const savedTheme = localStorage.getItem("theme") || "dark";
-setTheme(savedTheme);
+setTheme(localStorage.getItem("theme") || "dark");
 
 toggle.addEventListener("click", () => {
-
-    const nextTheme =
+    setTheme(
         document.body.classList.contains("light")
             ? "dark"
-            : "light";
-
-    setTheme(nextTheme);
-
+            : "light"
+    );
 });
 
+
+// type effect
 window.addEventListener("DOMContentLoaded", () => {
 
     const title = document.querySelector(".terminal-title");
@@ -41,7 +38,7 @@ window.addEventListener("DOMContentLoaded", () => {
         if (i < text.length) {
             typing.textContent += text.charAt(i);
             i++;
-            setTimeout(type, 150);
+            setTimeout(type, 500);
         } else {
             cursor.textContent = "_";
         }
@@ -51,6 +48,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
 });
 
+
+// stop reload samepae
 document.querySelectorAll("nav a").forEach(link => {
     link.addEventListener("click", function (e) {
         if (this.pathname === window.location.pathname) {

@@ -4,9 +4,7 @@
     box-sizing:border-box;
 }
 
-/* ==========================
-   THEME VARIABLES
-========================== */
+/* theme light and dark */
 
 :root{
     --bg:#000;
@@ -68,12 +66,9 @@ body{
     display:flex;
     justify-content:space-between;
     align-items:center;
-
     width:100%;
     height:50px;
-
     background:var(--nav-bg);
-
     border-block:1px solid var(--nav-border);
 
     
@@ -89,20 +84,13 @@ body{
     display:flex;
     align-items:center;
     justify-content:center;
-
     height:100%;
-
     padding:0 24px;
-
     text-decoration:none;
-
     color:var(--tab-text);
-
     font-size:18px;
     font-weight:500;
-
     border-right:1px solid var(--border);
-
     transition:.2s;
 }
 
