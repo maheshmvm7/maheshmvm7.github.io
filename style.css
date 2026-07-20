@@ -26,6 +26,8 @@
     --pre:#d6d6d6;
 
     --cursor:orangered;
+
+   
 }
 
 body.light{
@@ -47,6 +49,8 @@ body.light{
     --pre:#333;
 
     --cursor:#ff5a00;
+
+    
 }
 
 body{
@@ -176,7 +180,7 @@ body{
 
 .about-info{
 
-    max-width:100vh;
+    max-width:100%;
 }
 
 .about-info pre{
@@ -186,4 +190,83 @@ body{
     font-size:25px;
     line-height:1.7;
     white-space:pre-wrap;
+}
+
+/* contact style */
+
+.about-info a{
+    color:inherit;
+    text-decoration:none;
+    transition:color .2s ease;
+}
+
+.about-info a:hover{
+    color: var(--cursor);
+}
+
+/* copy btn style */
+
+.copy-item{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+}
+
+.copy-btn{
+    position:relative;
+    border:none;
+    background:none;
+    color:inherit;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:30px;
+    height:30px;
+    opacity:0;
+    visibility:hidden;
+    transform:translateX(-4px);
+    flex-shrink:0;
+    vertical-align:middle;
+    transition:
+        opacity .2s ease,
+        transform .2s ease;
+}
+
+.copy-item:hover .copy-btn,
+.copy-item.copied .copy-btn{
+    opacity:1;
+    visibility:visible;
+    transform:translateX(0);
+}
+
+.copy-icon,
+.check-icon{
+    position:absolute;
+
+    width:30px;
+    height:30px;
+
+    transition:opacity .2s ease;
+}
+
+.copy-icon{
+    opacity:1;
+}
+
+.check-icon{
+    opacity:0;
+    color:#22c55e;
+}
+
+.copy-item.copied .copy-icon{
+    opacity:0;
+}
+
+.copy-item.copied .check-icon{
+    opacity:1;
+}
+
+.copy-item.copied .copy-status{
+    display:inline;
 }

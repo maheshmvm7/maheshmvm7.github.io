@@ -57,3 +57,25 @@ document.querySelectorAll("nav a").forEach(link => {
         }
     });
 });
+
+// copy btn
+document.querySelectorAll(".copy-item").forEach(item => {
+
+    const btn = item.querySelector(".copy-btn");
+
+    btn.addEventListener("click", async (e) => {
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        await navigator.clipboard.writeText(item.dataset.copy);
+
+        item.classList.add("copied");
+
+        setTimeout(() => {
+            item.classList.remove("copied");
+        }, 1500);
+
+    });
+
+});
