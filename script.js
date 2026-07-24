@@ -79,3 +79,110 @@ document.querySelectorAll(".copy-item").forEach(item => {
     });
 
 });
+
+
+// projects terminal content switch 
+const items = document.querySelectorAll(".item");
+const title = document.getElementById("title");
+const description = document.getElementById("description");
+const stack = document.getElementById("stack");
+const github = document.getElementById("github");
+const demo = document.getElementById("demo");
+
+let current = 0;
+
+function updateItem(index) {
+
+    items.forEach(item => item.classList.remove("active"));
+
+    const item = items[index];
+
+    item.classList.add("active");
+
+    title.textContent = item.dataset.title;
+    description.textContent = item.dataset.desc;
+    stack.textContent = item.dataset.tech.replaceAll(",", " • ");
+    github.href = item.dataset.github;
+    demo.href = item.dataset.demo;
+
+    // Keep the selected item visible
+    item.scrollIntoView({
+        block: "nearest",
+        behavior: "smooth"
+    });
+}
+
+items.forEach((item, index) => {
+
+    item.addEventListener("click", () => {
+        current = index;
+        updateItem(current);
+    });
+
+});
+
+document.addEventListener("keydown", (e) => {
+
+    switch (e.key) {
+
+        case "ArrowDown":
+            e.preventDefault();
+            current = (current + 1) % items.length;
+            updateItem(current);
+            break;
+
+        case "ArrowUp":
+            e.preventDefault();
+            current = (current - 1 + items.length) % items.length;
+            updateItem(current);
+            break;
+
+        case "Home":
+            e.preventDefault();
+            current = 0;
+            updateItem(current);
+            break;
+
+        case "End":
+            e.preventDefault();
+            current = items.length - 1;
+            updateItem(current);
+            break;
+
+        case "Enter":
+            e.preventDefault();
+            if (github.href !== "#") {
+                window.open(github.href, "_blank");
+            }
+            break;
+
+    }
+
+});
+
+updateItem(current);
+
+// poject scroll
+const sidebar = document.querySelector(".sidebar");
+
+let wheelAccumulator = 0;
+
+sidebar.addEventListener("wheel", (e) => {
+
+    e.preventDefault();
+
+    wheelAccumulator += e.deltaY;
+
+    if (wheelAccumulator > 80) {
+        current = (current + 1) % items.length;
+        updateItem(current);
+        wheelAccumulator = 0;
+    }
+
+    if (wheelAccumulator < -80) {
+        current = (current - 1 + items.length) % items.length;
+        updateItem(current);
+        wheelAccumulator = 0;
+    }
+
+}, { passive: false });

@@ -5,37 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maheshwar</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="resume.css">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
- <nav class="navbar">
+    <nav class="navbar">
 
-    <div class="nav-left">
-        <a href="./" class="nav-item ">maheshwar</a>
-        <a href="project.html" class="nav-item">projects</a>
-        <a href="resume.html" class="nav-item active" >resume</a>
-        <a href="contact.html" class="nav-item">contact</a>
-    </div>
+        <div class="nav-left">
+            <a href="./" class="nav-item">maheshwar</a>
+            <a href="project.html" class="nav-item">projects</a>
+            <a href="resume.html" class="nav-item active">resume</a>
+            <a href="contact.html" class="nav-item">contact</a>
+        </div>
 
-    <button id="theme-toggle" class="theme-toggle">
-        dark/<span>light</span>
-    </button>
+        <button id="theme-toggle" class="theme-toggle">
+            dark/<span>light</span>
+        </button>
 
-  </nav>
+    </nav>
 
     <h2 class="terminal-title" data-title="resume">
         <span id="typing"></span><span id="cursor" class="cursor">_</span>
     </h2>
+<main class="explorer">
 
-    <section id="about" class="about">
-        <h1>resume</h1>
-    </section>
+    <div class="sidebar">
+
+        <div class="command">~/resume$ ls</div>
+
+        <button class="item active"
+            data-title="Resume"
+            data-desc=""
+            data-tech=""
+            data-github="#"
+            data-demo="#">
+            resume
+        </button>
+    </div>
+
+    <div class="content">
+
+        <h2 id="title">Resume</h2>
+
+
+        <div class="actions">
+            <a href="images/Maheshwar_M.pdf" target="_blank">View PDF</a>
+            <a href="images/Maheshwar_M.pdf" download>Download</a>
+        </div>
+
+    </div>
+
+</main>
 
     <script src="script.js"></script>
 
 </body>
 </html>
-
-
